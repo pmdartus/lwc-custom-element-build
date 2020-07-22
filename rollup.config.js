@@ -4,9 +4,15 @@ const replace = require('@rollup/plugin-replace');
 module.exports = {
     input: './src/index.js',
 
+    external: ['lwc'],
+
     output: {
         file: './dist/greeting.js',
-        format: 'esm'
+        format: 'iife',
+
+        globals: {
+            lwc: 'LWC'
+        }
     },
 
     plugins: [
